@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Extended List - Blebba GDDL</title>
+  <link rel="icon" href="/assets/images/logo.png" type="image/png">
+  <link rel="stylesheet" href="/assets/styles.css">
+  <link rel="stylesheet" href="/assets/list.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">
+      <a href="/">
+        <img src="/assets/images/logo.png" alt="Blebba GDDL">
+      </a>
+    </div>
+    <nav class="nav-links">
+      <a href="https://blebba.ps.fhgdps.com/dashboard" target="_blank">Основной сайт</a>
+      <div class="dropdown">
+        <button class="dropbtn">Списки ▾</button>
+        <div class="dropdown-content">
+          <a href="/main-list">Main List</a>
+          <a href="/extended-list">Extended List</a>
+          <a href="/full-list">Full List</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="list-page">
+    <h1 class="list-title">Extended List</h1>
+
+    <div class="search-bar">
+      <input class="search-input" type="text" placeholder="Поиск уровней...">
+      <button class="icon-btn search-btn">
+        <img src="/assets/images/search.png" alt="Search">
+      </button>
+      <button class="icon-btn time-travel-btn">
+        <img src="/assets/images/time-travel.png" alt="Time Travel">
+      </button>
+      <div class="time-travel-dropdown">
+        <p class="dropdown-text">Введите дату в диапазоне от 18-09-2025 до сегодняшнего дня</p>
+        <input type="text" maxlength="10" placeholder="ДД-ММ-ГГГГ">
+        <button class="confirm-btn">Подтвердить</button>
+      </div>
+    </div>
+
+    <div class="levels-wrapper"></div>
+  </main>
+
+  <script src="/assets/script/list.js"></script>
+</body>
+</html>

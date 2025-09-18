@@ -1,0 +1,434 @@
+.list-page {
+  padding: 80px 20px 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+  background: #121212;
+  height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+}
+
+.list-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #9cff00;
+  margin-bottom: 25px;
+  text-align: center;
+  letter-spacing: 1px;
+  animation: fadeInDown 0.6s ease-out;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  margin: 20px auto;
+  width: 100%;
+  max-width: 95vw;
+}
+
+.search-bar input {
+  flex: 1;
+  min-width: 120px; /* чтобы не выдавливал кнопки */
+  padding: 10px 14px;
+  font-size: 16px;
+
+  background: #2b2b2b;
+  color: #fff;
+
+  border: 1px solid #444;
+  border-radius: 8px;
+  outline: none;
+
+  transition: border-color 0.2s ease, transform 0.15s ease;
+}
+
+.search-bar input:focus {
+  border-color: #9cff00;
+  transform: scale(1.01);
+}
+
+.search-bar .icon-btn {
+  flex-shrink: 0; /* не даём кнопкам сжиматься */
+  background: #9cff00;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 10px;
+  cursor: pointer;
+
+  transition: transform 0.15s ease, background 0.2s ease;
+}
+
+.search-bar .icon-btn:hover {
+  transform: scale(1.08);
+  background: #7acc00;
+}
+
+.search-bar .icon-btn:active {
+  transform: scale(0.95);
+}
+
+.search-bar .icon-btn img {
+  width: 25px;
+  height: 25px;
+  display: block;
+  filter: brightness(0); /* чёрная иконка по умолчанию */
+  transition: filter 0.2s ease;
+}
+
+.search-bar .icon-btn:hover img {
+  filter: brightness(0) invert(1); /* белая иконка при наведении */
+}
+
+/* 📱 Адаптив */
+@media (max-width: 500px) {
+  .search-bar {
+    gap: 6px;
+  }
+
+  .search-bar input {
+    font-size: 14px;
+    padding: 8px 10px;
+    min-width: 80px;
+  }
+
+  .search-bar .icon-btn {
+    padding: 6px 8px;
+  }
+
+  .search-bar .icon-btn img {
+    width: 16px;
+    height: 16px;
+  }
+}
+
+.time-travel-dropdown {
+  position: absolute;
+  top: 235px; /* ниже кнопки */
+  right: 0;
+
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+
+  margin-top: 8px;
+  padding: 14px;
+
+  background: #2b2b2b;
+  border: 1px solid #444;
+  border-radius: 8px;
+  z-index: 1000;
+
+  width: 240px;
+  max-width: 75vw;
+
+  opacity: 0;
+  transform: translateY(-10px) translateX(-20px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.time-travel-dropdown.show {
+  display: flex;
+  opacity: 1;
+  transform: translateY(0) translateX(-20px);
+}
+
+.time-travel-dropdown .dropdown-text {
+  font-size: 13px;
+  color: #bbb;
+  margin: 0;
+}
+
+.time-travel-dropdown input {
+  padding: 8px 10px;
+  font-size: 14px;
+  border: 1px solid #555;
+  border-radius: 6px;
+  background: #1e1e1e;
+  color: #fff;
+}
+
+.time-travel-dropdown .confirm-btn {
+  background: #9cff00;
+  border: none;
+  border-radius: 6px;
+  padding: 8px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.time-travel-dropdown .confirm-btn:hover {
+  background: #7acc00;
+  transform: scale(1.05);
+}
+
+
+.levels-wrapper {
+  flex: none;
+  max-height: 400px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding-right: 8px;
+
+  scrollbar-width: thin;
+  scrollbar-color: #444 #1a1a1a;
+}
+
+.levels-wrapper::-webkit-scrollbar {
+  width: 6px;
+}
+
+.levels-wrapper::-webkit-scrollbar-track {
+  background: #1a1a1a;
+  border-radius: 4px;
+}
+
+.levels-wrapper::-webkit-scrollbar-thumb {
+  background-color: #444;
+  border-radius: 4px;
+}
+
+.levels-wrapper::-webkit-scrollbar-thumb:hover {
+  background-color: #666;
+}
+
+.levels-wrapper::-webkit-scrollbar-button {
+  display: none;
+}
+
+.level-item {
+  justify-content: space-between;
+  background: linear-gradient(145deg, #1a1a1a, #181818);
+  border-radius: 14px;
+  padding: 14px 18px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transform: translateY(0);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.3s ease;
+  animation: fadeInUp 0.5s ease;
+  display: grid;
+  grid-template-columns: auto auto 1fr auto;
+  align-items: center;
+  gap: 18px;
+}
+
+.level-item:hover {
+  transform: translateY(-6px);
+  background: linear-gradient(145deg, #222, #1d1d1d);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.4);
+}
+
+.level-rank {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #9cff00;
+  min-width: 60px;
+  text-align: center;
+  text-shadow: 0 0 6px rgba(156, 255, 0, 0.6);
+}
+
+.level-preview {
+  width: 130px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease;
+}
+
+.level-item:hover .level-preview {
+  transform: scale(1.05);
+}
+
+.level-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.level-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #f0f0f0;
+  margin-bottom: 4px;
+}
+
+.level-author {
+  font-size: 0.95rem;
+  color: rgba(240, 240, 240, 0.6);
+}
+
+.level-actions {
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  row-gap: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.view-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px 14px;
+  border-radius: 8px;
+  background: #1e7a1e;
+  color: #f0f0f0;
+  text-decoration: none;
+  font-weight: 600;
+  line-height: 1;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+}
+
+.view-btn:hover {
+  background: #2eb82e;
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.5);
+}
+
+.level-difficulty {
+  width: auto;
+  height: 40px;
+  filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.2));
+  transition: transform 0.3s ease;
+}
+
+.level-item:hover .level-difficulty {
+  transform: rotate(12deg) scale(1.1);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.level-item {
+  display: grid;
+  grid-template-columns: auto auto 1fr auto; /* [ранг][превью][инфо][actions] */
+  align-items: center;
+  gap: 18px;
+}
+
+.level-info {
+  min-width: 0; /* позволяет сжимать info */
+}
+
+.level-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  justify-self: end; /* прижать к правому краю на широкой строке */
+}
+
+/* Responsive: переносим actions на новую строку и растягиваем */
+@media (max-width: 700px) {
+  .level-item {
+    grid-template-columns: auto auto 1fr; /* убираем колонку actions сверху */
+  }
+
+  .level-actions {
+    grid-column: 1 / -1;   /* переносим на всю строку */
+    justify-content: space-between; /* кнопка влево, иконка вправо */
+    width: 100%;             /* растягиваем на всю ширину строки */
+    margin-top: 8px;
+  }
+
+  .level-actions .view-btn {
+    flex: 1;                 /* кнопка занимает всё доступное пространство */
+    max-width: calc(100% - 40px); /* оставляем место под иконку сложности */
+  }
+
+  .level-actions .level-difficulty {
+    flex: 0 0 auto;          /* фиксированный размер, не растягиваем */
+  }
+}
+
+/* базовые стили уже есть, добавим адаптив */
+@media (max-width: 900px) {
+  .level-item {
+    padding: 12px 14px;
+    gap: 12px;
+  }
+  .level-preview {
+    width: 100px;
+    height: 55px;
+  }
+  .level-name {
+    font-size: 1rem;
+  }
+  .level-author {
+    font-size: 0.85rem;
+  }
+  .level-rank {
+    font-size: 1.4rem;
+    min-width: 50px;
+  }
+}
+
+@media (max-width: 600px) {
+  .level-item {
+    padding: 10px 12px;
+    gap: 10px;
+  }
+  .level-preview {
+    width: 80px;
+    height: 45px;
+  }
+  .level-name {
+    font-size: 0.9rem;
+  }
+  .level-author {
+    font-size: 0.75rem;
+  }
+  .level-rank {
+    font-size: 1.2rem;
+    min-width: 45px;
+  }
+}
+
+@media (max-width: 400px) {
+  .level-item {
+    padding: 8px 10px;
+    gap: 8px;
+  }
+  .level-preview {
+    width: 60px;
+    height: 35px;
+  }
+  .level-name {
+    font-size: 0.8rem;
+  }
+  .level-author {
+    font-size: 0.7rem;
+  }
+  .level-rank {
+    font-size: 1rem;
+    min-width: 40px;
+  }
+}
+

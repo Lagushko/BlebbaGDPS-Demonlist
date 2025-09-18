@@ -194,8 +194,8 @@
       const regex = /^\d{2}-\d{2}-\d{4}$/;
 
       if (!regex.test(date)) {
-        alert("Введите дату в формате ДД-ММ-ГГГГ");
-        return;
+          alert("Введите дату в формате ДД-ММ-ГГГГ");
+          return;
       }
 
       const [day, month, year] = date.split("-").map(Number);
@@ -206,30 +206,23 @@
       today.setHours(0, 0, 0, 0);
 
       if (chosenDate < minDate || chosenDate > today) {
-        alert(
-          `Дата должна быть в диапазоне от 18-09-2025 до ${today
-            .toLocaleDateString("ru-RU")
-            .replace(/\./g, "-")}`
-        );
-        return;
+          alert(
+              `Дата должна быть в диапазоне от 18-09-2025 до ${today
+                  .toLocaleDateString("ru-RU")
+                  .replace(/\./g, "-")}`
+          );
+          return;
       }
 
       console.log("Selected date:", date);
+
       let timeData = {};
       for (const [key, levels] of Object.entries(listData)) {
-          timeData[key] = levels.map(level => {
-              let newLevel = { ...level };
-
-              const [d, m, y] = newLevel.time.split(".").map(Number);
+          timeData[key] = levels.filter(level => {
+              const [d, m, y] = level.time.split(".").map(Number);
               const levelDate = new Date(y, m - 1, d);
 
-              if (levelDate > chosenDate) {
-                  newLevel.show = false;
-              } else {
-                  newLevel.show = true;
-              }
-
-              return newLevel;
+              return levelDate <= chosenDate;
           });
       }
 

@@ -66,7 +66,7 @@
             const item = document.createElement('div');
             item.className = 'level-item';
 
-            const previewSrc = `https://raw.githubusercontent.com/Lagushko/BlebbaGDPS-Data/main/data/previews/${level.name.replace(/\s+/g, '_')}.png`;
+            const previewSrc = `https://raw.githubusercontent.com/Lagushko/BlebbaGDPS-Data/main/data/previews/${level.name.replace(/\s+/g, '_')}.jpg`;
             const difficultyImg = `/assets/images/difficulties/${difficultyMap[level.difficulty] || 'hard.webp'}`;
 
             item.innerHTML = `

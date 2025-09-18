@@ -179,6 +179,7 @@ body {
 .btn.primary {
   background: #1a1a1a;
   color: #f0f0f0;
+  max-width: 92.5%;
 }
 
 .btn.primary:hover {

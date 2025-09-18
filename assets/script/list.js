@@ -201,13 +201,13 @@
       const [day, month, year] = date.split("-").map(Number);
       const chosenDate = new Date(year, month - 1, day);
 
-      const minDate = new Date(2025, 8, 18);
+      const minDate = new Date(2025, 7, 1);
       const today = new Date();
       today.setHours(0, 0, 0, 0);
 
       if (chosenDate < minDate || chosenDate > today) {
           alert(
-              `Дата должна быть в диапазоне от 18-09-2025 до ${today
+              `Дата должна быть в диапазоне от 01-08-2025 до ${today
                   .toLocaleDateString("ru-RU")
                   .replace(/\./g, "-")}`
           );
@@ -261,4 +261,5 @@
 
     renderList(listType, searchData);
   });
+
 })();

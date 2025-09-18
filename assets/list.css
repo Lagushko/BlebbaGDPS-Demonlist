@@ -120,7 +120,7 @@
   border-radius: 8px;
   z-index: 1000;
 
-  width: 280px;
+  width: 300px;
   max-width: 75vw;
 
   opacity: 0;
@@ -431,4 +431,5 @@
     min-width: 40px;
   }
 }
+
 

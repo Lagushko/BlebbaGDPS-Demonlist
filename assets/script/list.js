@@ -79,7 +79,7 @@
                     <div class="level-author">от ${level.author}</div>
                 </div>
                 <div class="level-actions">
-                    <a href="https://blebba.ps.fhgdps.com/dashboard/stats/levelLeaderboards.php?levelID=${level.id}" class="btn view-btn">Смотреть</a>
+                    <a href="https://blebba.ps.fhgdps.com/dashboard/stats/levelLeaderboards.php?levelID=${level.id}&type=1" class="btn view-btn">Смотреть</a>
                     <img src="${difficultyImg}" alt="Difficulty" class="level-difficulty">
                 </div>
             `;

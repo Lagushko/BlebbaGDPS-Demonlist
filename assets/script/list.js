@@ -13,6 +13,7 @@
 
   const baseLink = 'https://raw.githubusercontent.com/Lagushko/BlebbaGDPS-Data/main/data/lists/';
   let listData = {};
+  let timeData = {};
 
   async function loadLists(type) {
     const files = ['1.json', '2.json', '3.json'];
@@ -27,6 +28,7 @@
         const data = await res.json();
 
         listData[i + 1] = data;
+        timeData[i + 1] = data;
       } catch (err) {
         console.error(`Failed to load ${files[i]}:`, err);
       }
@@ -216,7 +218,7 @@
 
       console.log("Selected date:", date);
 
-      let timeData = {};
+      timeData = {};
       for (const [key, levels] of Object.entries(listData)) {
           timeData[key] = levels.filter(level => {
               const [d, m, y] = level.time.split(".").map(Number);
@@ -245,7 +247,7 @@
     }
 
     let searchData = {};
-    for (const [key, levels] of Object.entries(listData)) {
+    for (const [key, levels] of Object.entries(timeData)) {
         searchData[key] = levels.map(level => {
             let newLevel = { ...level };
 

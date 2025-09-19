@@ -242,7 +242,7 @@
     wrapper.innerHTML = "";
 
     if (!query) {
-      renderList(listType, listData);
+      renderList(listType, timeData);
       return;
     }
 

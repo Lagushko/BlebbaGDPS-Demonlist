@@ -178,6 +178,12 @@
   margin-bottom: 50px; 
 }
 
+@media (max-width: 780px) {
+  .levels-wrapper {
+    margin-bottom: 100px;
+  }
+}
+
 
 .levels-wrapper::-webkit-scrollbar {
   width: 6px;

@@ -261,5 +261,4 @@
 
     renderList(listType, searchData);
   });
-
 })();

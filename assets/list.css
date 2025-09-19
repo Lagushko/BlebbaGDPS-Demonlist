@@ -165,8 +165,8 @@
 
 
 .levels-wrapper {
-  flex: none;
-  max-height: 400px;
+  flex: 1 1 auto;
+  min-height: 0;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
@@ -175,7 +175,9 @@
 
   scrollbar-width: thin;
   scrollbar-color: #444 #1a1a1a;
+  margin-bottom: 50px; 
 }
+
 
 .levels-wrapper::-webkit-scrollbar {
   width: 6px;

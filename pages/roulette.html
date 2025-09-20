@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Roulette - Blebba GDDL</title>
+  <link rel="icon" href="/assets/images/logo.png" type="image/png">
+  <link rel="stylesheet" href="/assets/styles.css">
+  <link rel="stylesheet" href="/assets/list.css">
+  <link rel="stylesheet" href="/assets/roulette.css">
+</head>
+<body>
+  <header class="navbar"></header>
+
+  <main class="setup-container">
+    <h1 class="setup-title">Рулетка демонов</h1>
+    <p class="setup-description">
+        Это мини-игра, в которой вам будут выпадать случайные демоны.  
+        На каждом уровне нужно поставить определённый прогресс.  
+        Ваша цель - либо сдаться, либо пройти до 100%, собрав как можно больше уровней!
+    </p>
+
+    <div class="options">
+        <div class="option-group left">
+        <h2>Списки</h2>
+        <label><input type="radio" name="list" value="main"> Main List</label>
+        <label><input type="radio" name="list" value="extended"> Extended List</label>
+        <label><input type="radio" name="list" value="full"> Full List</label>
+        </div>
+
+        <div class="option-group right">
+        <h2>Сложности</h2>
+        <label><input type="checkbox" name="difficulty" value="extreme"> Extreme Demons</label>
+        <label><input type="checkbox" name="difficulty" value="insane"> Insane Demons</label>
+        <label><input type="checkbox" name="difficulty" value="hard"> Hard Demons</label>
+        <label><input type="checkbox" name="difficulty" value="medium"> Medium Demons</label>
+        <label><input type="checkbox" name="difficulty" value="easy"> Easy Demons</label>
+        </div>
+    </div>
+
+    <div class="start-container">
+        <a id="startBtn" class="start-btn">Начать</a>
+    </div>
+  </main>
+
+  <main class="roulette-container" style="padding: 25px;">
+    <h1 class="setup-title">Рулетка демонов</h1>
+    <div class="levels-wrapper"></div>
+    <p class="win-text"></p>
+  </main>
+
+  <script src="/assets/script/roulette.js"></script>
+</body>
+</html>

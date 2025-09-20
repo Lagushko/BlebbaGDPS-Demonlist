@@ -1,0 +1,223 @@
+.setup-container {
+  margin: 60px auto;
+  max-width: 900px;
+  padding: 20px;
+  text-align: center;
+}
+
+.setup-title {
+  font-size: 2.2rem;
+  margin: 20px 0 15px 0;
+  color: #9cff00;
+  animation: fadeInDown 1s ease;
+}
+
+.setup-description {
+  font-size: 1rem;
+  color: rgba(240,240,240,0.7);
+  max-width: 650px;
+  margin: 0 auto 30px auto;
+  line-height: 1.6;
+  animation: fadeInUp 1.2s ease;
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+}
+
+.option-group {
+  flex: 1;
+  min-width: 250px;
+  text-align: left;
+  background: #1a1a1a;
+  padding: 15px;
+  border-radius: 8px;
+  animation: fadeInUp 1.4s ease;
+}
+
+.option-group h2 {
+  font-size: 1.1rem;
+  margin: 0 0 10px 0;
+  color: #f0f0f0;
+}
+
+.option-group label {
+  display: flex;
+  align-items: center;
+  margin: 6px 0;
+  cursor: pointer;
+  font-size: 0.95rem;
+  color: #f0f0f0;
+}
+
+.option-group input {
+  margin-right: 10px;
+  accent-color: #9cff00;
+  transform: scale(1.15);
+  cursor: pointer;
+}
+
+.start-container {
+  margin-top: 15px;
+}
+
+.start-btn {
+  display: inline-block;
+  text-align: center;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  color: #777;
+  background: #333;
+  text-decoration: none;
+}
+
+.start-btn.enabled {
+  background: #145214;
+  color: #fff;
+}
+
+.start-btn.enabled:hover {
+  background: #1f7a1f;
+  transform: translateY(-3px);
+}
+
+
+
+@media (max-width: 780px) {
+  .setup-container {
+    margin: 40px auto;
+    padding: 15px;
+  }
+
+  .setup-title {
+    font-size: 1.6rem;
+    margin-bottom: 10px;
+  }
+
+  .setup-description {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    margin-bottom: 25px;
+  }
+
+  .options {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .option-group {
+    min-width: unset;
+    padding: 15px;
+  }
+}
+
+.view-btn {
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.level-item {
+    text-align: left;
+}
+
+.level-percent-input {
+  flex: 1;                  /* занимает свободное место, но не выталкивает соседние элементы */
+  max-width: 100px;         /* ограничение максимальной ширины */
+  padding: 8px 12px;        /* аккуратный внутренний отступ */
+  font-size: 14px;          
+
+  background: #2b2b2b;      /* темно-серый фон */
+  color: #fff;               /* текст белый */
+  
+  border: 1px solid #444;    /* тонкая рамка */
+  border-radius: 6px;        /* скругление */
+  outline: none;
+
+  transition: border-color 0.2s ease, transform 0.15s ease;
+}
+
+.level-percent-input:focus {
+  border-color: #9cff00;     /* подсветка при фокусе */
+  transform: scale(1.02);    /* лёгкое увеличение при фокусе */
+}
+
+.level-percent-input {
+  appearance: none;       /* стандартное свойство */
+  -moz-appearance: textfield;   /* Firefox */
+  -webkit-appearance: none;     /* Chrome, Safari, Edge */
+}
+
+.level-percent-input::-webkit-outer-spin-button,
+.level-percent-input::-webkit-inner-spin-button {
+  -webkit-appearance: none;     /* Chrome, Safari, Edge */
+  margin: 0;
+}
+
+.roulette-container {
+  margin: 60px auto;
+  max-width: 900px;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  height: calc(100vh - 60px);
+}
+
+.levels-wrapper {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding-right: 8px;
+
+  scrollbar-width: thin;
+  scrollbar-color: #444 #1a1a1a;
+  margin-bottom: 0px; 
+}
+
+.win-text {
+    margin-bottom: 50px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    white-space: pre-line;
+}
+
+@media (max-width: 780px) {
+  .win-text {
+    margin-bottom: 100px;
+  }
+}
+
+
+.levels-wrapper::-webkit-scrollbar {
+  width: 6px;
+}
+
+.levels-wrapper::-webkit-scrollbar-track {
+  background: #1a1a1a;
+  border-radius: 4px;
+}
+
+.levels-wrapper::-webkit-scrollbar-thumb {
+  background-color: #444;
+  border-radius: 4px;
+}
+
+.levels-wrapper::-webkit-scrollbar-thumb:hover {
+  background-color: #666;
+}
+
+.levels-wrapper::-webkit-scrollbar-button {
+  display: none;
+}

@@ -1,9 +1,11 @@
 const routes = {
   '/': '/pages/home.html',
-  '/main-list': '/pages/main-list.html',
-  '/extended-list': '/pages/extended-list.html',
-  '/full-list': '/pages/full-list.html',
-  '/level': '/pages/level.html'
+  '/main-list': '/pages/lists/main-list.html',
+  '/extended-list': '/pages/lists/extended-list.html',
+  '/full-list': '/pages/lists/full-list.html',
+  // '/level': '/pages/level.html',
+  '/roulette': '/pages/roulette.html',
+  '/error': '/pages/error.html'
 };
 
 function stripOrigin(path) {
@@ -34,20 +36,34 @@ function resolveAgainstPage(pageUrl, resourceHref) {
   return new URL(resourceHref, base).href;
 }
 
+async function loadHeader() {
+  try {
+    const navbar = document.querySelector('.navbar');
+    if (!navbar) return;
+
+    const resp = await fetch('/pages/templates/header.html', { cache: 'no-store' });
+    if (resp.ok) {
+      navbar.innerHTML = await resp.text();
+    } else {
+      console.warn('Не удалось загрузить header.html:', resp.status);
+    }
+  } catch (e) {
+    console.error('Ошибка загрузки header.html:', e);
+  }
+}
+
 async function loadPage(rawPath) {
   try {
     const { pathname, queryString } = splitPathAndQuery(rawPath);
     const route = Object.keys(routes).find(r => r === pathname);
     if (!route) {
-      document.getElementById('app').innerHTML = `<h1>404 — страница не найдена</h1>`;
-      return;
+      return loadPage('/error'); // при неизвестном пути
     }
 
     const pageUrl = routes[route];
     const resp = await fetch(pageUrl, { cache: 'no-store' });
     if (!resp.ok) {
-      document.getElementById('app').innerHTML = `<h1>Ошибка загрузки: ${resp.status}</h1>`;
-      return;
+      return loadPage('/error'); // при ошибке загрузки страницы
     }
 
     const htmlText = await resp.text();
@@ -106,9 +122,11 @@ async function loadPage(rawPath) {
       try { window.onSpaPageLoaded({ pathname, queryString, pageUrl }); } catch (e) { console.error(e); }
     }
 
+    await loadHeader();
+
   } catch (err) {
     console.error('Ошибка loadPage:', err);
-    document.getElementById('app').innerHTML = `<h1>Ошибка</h1><pre>${err}</pre>`;
+    return loadPage('/error'); // при любой другой ошибке
   }
 }
 

@@ -25,17 +25,6 @@
   } else {
     if (rouletteContainer) rouletteContainer.remove();
 
-    const style = document.createElement("style");
-    style.textContent = `
-      @media (max-width: 780px) {
-        html, body {
-          height: 100%;
-          overflow-y: auto;
-        }
-      }
-    `;
-    document.head.appendChild(style);
-
     const startBtn = document.getElementById("startBtn");
     if (startBtn) {
       startBtn.addEventListener("click", (e) => {

@@ -7,7 +7,7 @@
 
 .setup-title {
   font-size: 2.2rem;
-  margin: 20px 0 15px 0;
+  margin-bottom: 25px;
   color: #9cff00;
   animation: fadeInDown 1s ease;
 }
@@ -92,16 +92,6 @@
 
 
 @media (max-width: 780px) {
-  .setup-container {
-    margin: 40px auto;
-    padding: 15px;
-  }
-
-  .setup-title {
-    font-size: 1.6rem;
-    margin-bottom: 10px;
-  }
-
   .setup-description {
     font-size: 0.85rem;
     line-height: 1.4;

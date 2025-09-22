@@ -353,6 +353,10 @@
   justify-self: end; /* прижать к правому краю на широкой строке */
 }
 
+.levels-wrapper {
+  margin-bottom: 50px;
+}
+
 /* Responsive: переносим actions на новую строку и растягиваем */
 @media (max-width: 700px) {
   .level-item {
@@ -373,6 +377,10 @@
 
   .level-actions .level-difficulty {
     flex: 0 0 auto;          /* фиксированный размер, не растягиваем */
+  }
+
+  .levels-wrapper {
+    margin-bottom: 100px;
   }
 }
 
